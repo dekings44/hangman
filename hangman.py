@@ -11,7 +11,9 @@ logo = art.logo
 word_list = words.word_list
 
 
-print(f'WELCOME TO\n{logo}\nGAME')
+print(f'WELCOME TO\n{logo}')
+
+print('INSTRUCTION: The game has 6 lives. for every time you guess the letter wrong, you help build the gallow')
 
 
 chosen_word = random.choice(word_list)
@@ -32,6 +34,10 @@ live = 6
 while not end_of_game:
     guess = input('Guess a letter: ').lower()
 
+
+    if guess in display:
+        print(f'You have already guessed {guess}')
+
     for position in range(word_length):
         letter = chosen_word[position]
         if letter == guess:
@@ -39,16 +45,21 @@ while not end_of_game:
 
 
     if guess not in chosen_word:
+
+        
         live -= 1
+        print(f'You guessed {guess}, that is not in the word. You lose a life.\n You have {live} lives left')
         if live == 0:
             end_of_game = True
-            print('You lose')
+            print(f'Sorry, You lose.\nThe correct word is {chosen_word}')
+           
 
 
     print(f"{' '.join(display)}")
 
     if "_" not in display:
         end_of_game = True
+
 
         print('You Won')
 
