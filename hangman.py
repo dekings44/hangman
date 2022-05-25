@@ -1,16 +1,22 @@
 #step 1
 
 import random
+import words
+import art
 
-from numpy import disp
 
-word_list = ['ardvark', 'baboon', 'camel']
+stages = art.stages
+logo = art.logo
 
+word_list = words.word_list
+
+
+print(f'WELCOME TO\n{logo}\nGAME')
 
 
 chosen_word = random.choice(word_list)
 
-print(f'The solution is {chosen_word}')
+print(f'The solution starts with {chosen_word[0]} and ends with this last two letters {chosen_word[-2]}{chosen_word[-1]}')
 
 
 display = []
@@ -22,6 +28,7 @@ for letter in range(word_length):
 print(display)
 
 end_of_game = False
+live = 6
 while not end_of_game:
     guess = input('Guess a letter: ').lower()
 
@@ -30,9 +37,19 @@ while not end_of_game:
         if letter == guess:
             display[position] = letter
 
-    print(display)
+
+    if guess not in chosen_word:
+        live -= 1
+        if live == 0:
+            end_of_game = True
+            print('You lose')
+
+
+    print(f"{' '.join(display)}")
 
     if "_" not in display:
         end_of_game = True
 
-    print('You Won')
+        print('You Won')
+
+    print(stages[live])
