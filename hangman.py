@@ -12,7 +12,7 @@ logo = art.logo
 
 word_list = words.word_list
 
-st.title(f'WELCOME TO HANGMAN GAME')
+st.title(f'WELCOME TO HANGMAN GAME\n')
 print(f'WELCOME TO\n{logo}\n') 
 
 print('INSTRUCTION:\n This game has 6 lives. for every time you guess the letter wrong, you help build the gallow')
