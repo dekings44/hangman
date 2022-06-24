@@ -20,7 +20,7 @@ st.subheader('INSTRUCTION: The game has 6 lives. for every time you guess the le
 
 chosen_word = random.choice(word_list)
 
-print(f'The solution starts with {chosen_word[0]} and ends with this last two letters {chosen_word[-2]}{chosen_word[-1]}')
+print(f'The solution starts with {chosen_word[0]} and ends with this last two letters {chosen_word[-2]}{chosen_word[-1]}\n')
 
 
 display = []
